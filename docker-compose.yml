@@ -15,6 +15,7 @@ services:
     volumes:
       - media:/media
       - data:/data
+      - pisignage-server:/pisignage-server
     depends_on:
       - mongo
 
@@ -23,3 +24,4 @@ volumes:
   mongodb_config:
   media:
   data:
+  pisignage-server:
