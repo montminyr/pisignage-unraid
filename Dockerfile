@@ -4,8 +4,10 @@ RUN apk add git
 RUN apk add  ffmpeg
 RUN apk add imagemagick
 
-ARG MONGO_NAME
-ENV MONGO_CONTAINER_NAME=$MONGO_NAME
+ARG MONGONAME
+
+ENV MONGONAME ${MONGONAME}
+
 ENV NODE_ENV=production
 
 WORKDIR /pisignage-server
@@ -19,4 +21,4 @@ RUN npm install --production
 COPY . .
 RUN chmod +x ./wait-for-it.sh
 
-CMD [ "./wait-for-it.sh", "${MONGO_NAME}:27017", "--", "node", "server.js"]
+CMD [ "./wait-for-it.sh", "${MONGONAME}:27017", "--", "node", "server.js"]
