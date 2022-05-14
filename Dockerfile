@@ -21,4 +21,4 @@ RUN npm install --production
 COPY . .
 RUN chmod +x ./wait-for-it.sh
 
-CMD [ "./wait-for-it.sh", "${MONGONAME}:27017", "--", "node", "server.js"]
+CMD [ "sh", "-c", "./wait-for-it.sh", "${MONGONAME}:27017", "--", "node", "server.js"]
